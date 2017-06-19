@@ -9,6 +9,19 @@ var TestUntils = require('react-addons-test-utils');
 var Clock = require('Clock');
 
 
+describe('render', () => {
+  it('should render clock to output', () => {
+    var clock = TestUntils.renderIntoDocument(<Clock totalSeconds={62}/>);
+    var $el = $(ReactDOM.findDOMNode(clock));
+    var actualText = $el.find('.clock-text').text();
+    expect(actualText).toBe('01:02');
+  });
+});
+
+
+
+
+
 describe('Clock', () => {
   it('should exist', () => {
     expect(Clock).toExist();
